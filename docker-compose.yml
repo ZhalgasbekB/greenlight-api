@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - "./pg-data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0000
+      POSTGRES_DB: greenlight
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
